@@ -1,0 +1,266 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5; /* Light mode body background */
+    margin: 0;
+    transition: background-color 0.3s ease;
+   }
+   
+   .calculator-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+   
+   header {
+    padding: 20px;
+    color: #555; /* Light mode header text color */
+    text-align: center;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+   }
+   
+   header h1 {
+    margin: 0;
+    font-size: 2rem;
+   }
+   
+   .calculator {
+    background: #e0e5ec; /* Light mode calculator background */
+    box-shadow: 12px 12px 24px #a3b1c6, -12px -12px 24px #fff; /* Light mode outer shadow */
+    border-radius: 20px;
+    overflow: hidden;
+    width: 350px; /* Keep width consistent */
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+   }
+   
+   .toggle-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+   }
+   
+   .toggle {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    border-radius: 15px;
+    background-color: #ddd; /* Light mode toggle background */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+   }
+   
+   .toggle::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff; /* Light mode toggle circle color */
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+   }
+   
+   #darkModeToggle {
+    opacity: 0;
+    position: absolute;
+   }
+   
+   #darkModeToggle:checked + .toggle {
+    background-color: #555; /* Dark mode toggle background */
+   }
+   
+   #darkModeToggle:checked + .toggle::before {
+    transform: translateX(20px);
+    background-color: #eee; /* Dark mode toggle circle color */
+   }
+   
+   .display {
+    background: #e0e5ec; /* Light mode display background */
+    color: #333; /* Light mode display text */
+    padding: 20px;
+    text-align: right;
+    font-size: 1.5rem;
+    box-shadow: inset 6px 6px 10px #a3b1c6, inset -6px -6px 10px #fff; /* Light mode display inner shadow */
+    border-radius: 10px;
+    margin: 15px;
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+   }
+   
+   .display .previous-operand {
+    font-size: 1rem;
+    color: #777; /* Light mode previous operand color */
+    height: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: color 0.3s ease;
+   }
+   
+   .display .current-operand {
+    font-size: 2.5rem;
+    font-weight: bold;
+    height: 55px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: color 0.3s ease;
+   }
+   
+   .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    padding: 10px;
+   }
+   
+   .buttons button {
+    background: #e0e5ec; /* Light mode button background */
+    color: #333; /* Light mode button text */
+    border: none;
+    padding: 16px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 12px;
+    margin: 6px;
+    box-shadow: 5px 5px 10px #a3b1c6, -5px -5px 10px #fff; /* Light mode button outer shadow */
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+   }
+   
+   .buttons button:active {
+    box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #fff; /* Light mode button pressed shadow */
+    transform: scale(0.95);
+   }
+   
+   .function-button {
+    color: #777; /* Light mode function button text */
+   }
+   
+   .operator-button {
+    color: #007bff; /* Light mode operator button text */
+   }
+   
+   .equals-button {
+    background-color: #007bff; /* Light mode equals button background */
+    color: #fff; /* Light mode equals button text */
+    grid-column: span 4; /* Make equals button span 2 columns */
+   }
+   
+   .equals-button:active {
+    background-color: #0056b3; /* Darker blue on press */
+   }
+   
+   
+   footer {
+    padding: 15px;
+    color: #888; /* Light mode footer text */
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+   }
+   
+   /* Dark Mode Styles */
+   body.dark-mode {
+    background-color: #1a1a1a; /* Dark mode body background */
+   }
+   
+   .calculator-wrapper.dark-mode header h1 {
+    color: #eee; /* Dark mode header text color */
+   }
+   
+   .calculator.dark-mode {
+    background: #303030; /* Dark mode calculator background */
+    box-shadow: 12px 12px 24px #0f0f0f, -12px -12px 24px #444444; /* Dark mode outer shadow */
+   }
+   
+   .calculator.dark-mode .display {
+    background: #303030; /* Dark mode display background */
+    color: #eee; /* Dark mode display text */
+    box-shadow: inset 6px 6px 10px #181818, inset -6px -6px 10px #444444; /* Dark mode display inner shadow */
+   }
+   
+   .calculator.dark-mode .display .previous-operand {
+    color: #ccc; /* Dark mode previous operand color */
+   }
+   
+   .calculator.dark-mode .buttons button {
+    background: #303030; /* Dark mode button background */
+    color: #eee; /* Dark mode button text */
+    box-shadow: 5px 5px 10px #1c1c1c, -5px -5px 10px #444444; /* Dark mode button outer shadow */
+   }
+   
+   .calculator.dark-mode .buttons button:active {
+    box-shadow: inset 5px 5px 10px #1c1c1c, inset -5px -5px 10px #444444; /* Dark mode button pressed shadow */
+   }
+   
+   .calculator.dark-mode .function-button {
+    color: #bbb; /* Dark mode function button text */
+   }
+   
+   .calculator.dark-mode .operator-button {
+    color: #50aaff; /* Dark mode operator button text */
+   }
+   
+   .calculator.dark-mode .equals-button {
+    background-color: #50aaff; /* Dark mode equals button background */
+    color: #fff; /* Dark mode equals button text */
+   }
+   
+   .calculator.dark-mode .equals-button:active {
+    background-color: #3a8acc; /* Darker blue on press */
+   }
+   
+   
+   .calculator-wrapper.dark-mode footer p {
+    color: #aaa; /* Dark mode footer text */
+   }
+   
+   
+   /* Responsive Design */
+   @media (max-width: 450px) {
+    .calculator {
+     width: 95%;
+     max-width: 400px;
+    }
+    .buttons button {
+     padding: 14px;
+     font-size: 1rem;
+     margin: 5px;
+    }
+    .display {
+     padding: 15px;
+     margin: 10px;
+     font-size: 1.3rem;
+    }
+    .display .current-operand {
+     font-size: 2rem;
+     height: 48px; 
+    }
+    header h1 {
+     font-size: 1.7rem;
+    }
+    footer p {
+     font-size: 0.8rem;
+    }
+   }
+   
+   @media (max-height: 700px) {
+    .calculator {
+     margin-top: 10px;
+     margin-bottom: 10px;
+    }
+    header {
+     padding: 15px 0;
+     margin-bottom: 5px;
+    }
+    footer {
+     padding: 10px 0;
+     margin-top: 5px;
+    }
+   }

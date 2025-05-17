@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>HD Calculator 2.0</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div class="calculator-wrapper">
+  <header>
+   <h1>HD Calculator 2.0</h1>
+  </header>
+  <div class="calculator">
+   <div class="toggle-container">
+    <input type="checkbox" id="darkModeToggle">
+    <label for="darkModeToggle" class="toggle"></label>
+   </div>
+   <div class="display">
+    <div class="previous-operand"></div>
+    <div class="current-operand">0</div>
+   </div>
+   <div class="buttons">
+    <!-- Row 1: Basic Functions -->
+    <button class="function-button clear">AC</button>
+    <button class="function-button delete">DEL</button>
+    <button class="function-button plus-minus">+/-</button>
+    <button class="function-button percent">%</button>
+
+    <!-- Row 2: Scientific Functions & Operators -->
+    <button class="function-button square">x²</button>
+    <button class="function-button root">√</button>
+    <button class="function-button log">log</button>
+    <button class="function-button open-bracket">(</button>
+
+    <!-- Row 3: More Scientific / Top Number Row -->
+    <button class="number-button">7</button>
+    <button class="number-button">8</button>
+    <button class="number-button">9</button>
+    <button class="function-button close-bracket">)</button>
+
+    <!-- Row 4: Middle Number Row & Operator -->
+    <button class="number-button">4</button>
+    <button class="number-button">5</button>
+    <button class="number-button">6</button>
+     <button class="operator-button divide">/</button>
+
+
+    <!-- Row 5: Bottom Number Row & Operator -->
+    <button class="number-button">1</button>
+    <button class="number-button">2</button>
+    <button class="number-button">3</button>
+     <button class="operator-button multiply">×</button>
+
+    <!-- Row 6: Operators -->
+     <button class="operator-button subtract">−</button>
+     <button class="operator-button add">+</button>
+
+    <!-- Row 7: Bottom Row (0, ., =) -->
+    <button class="number-button zero">0</button>
+    <button class="number-button decimal">.</button>
+    <button class="equals-button">=</button> <!-- This button will span 2 columns -->
+
+   </div>
+  </div>
+  <footer>
+   <p>Prepared by: Hiren Dodiya</p>
+  </footer>
+ </div>
+ <script src="script.js"></script>
+</body>
+</html>
